@@ -23,12 +23,7 @@ int main(int argc, char *argv[])
   for(int i = 0; i < lvInput.length(); i++)
   {
     int lvCurrentNumber = lvInput[i] - '0';
-    int lvCompareNumber = 0;
-
-    if(i + lvCompareInterval >= lvInputLength)
-      lvCompareNumber = lvInput[i + lvCompareInterval - lvInputLength] - '0';
-    else
-      lvCompareNumber = lvInput[i + lvCompareInterval] - '0';
+    int lvCompareNumber = lvInput[(i + lvCompareInterval) % lvInputLength] - '0';
 
     if(lvCurrentNumber == lvCompareNumber)
       lvCaptcha += lvCurrentNumber;
